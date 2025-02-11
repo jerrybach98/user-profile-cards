@@ -1,6 +1,6 @@
 /* Pseudo
 Style with tailwind
-Add conistent and dynamic spacing using flexbox or grid between profile card containers
+- put country next to name and convert it
 
 flag state using vanilla or look into framework to manage state
 UI for loading, success, and error states
@@ -40,18 +40,17 @@ getRandomUsers().then((data) => {
 });
 
 function createCard (user) {
- /* Add each user profile as another container (Avatar, name, email, country, flag icon, button) */
   const card = document.createElement('div');
-  card.classList.add('flex', 'flex-col', 'justify-center', 'items-center', 'border-2', 'border-blue-700');
+  card.classList.add('relative', 'flex', 'flex-col', 'justify-center', 'items-center', 'justify-evenly', 'border-3', 'border-b-5', 'p-4', 'shadow-lg', 'rounded-lg', 'border-gray-100');
 
+
+  
     card.innerHTML = `
-      <p>🏳</p>
-      <img src='${user.picture.medium}'>
-      <p > ${user.name.first} ${user.name.last}</p>
-      <p>${user.email}</p>
-      <p>${user.location.country}</p> 
-      <button type="button">View Profile</button>
-      
+      <div class='absolute top-0 right-0 p-4 mr-2'>🏳</div>
+      <img src='${user.picture.medium}' class='rounded-full m-2'>
+      <p class='font-semibold m-1'> ${user.name.first} ${user.name.last} ${user.location.country}</p>
+      <p class='text-sm text-gray-500 m-1'>${user.email}</p>
+      <button class='bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded m-1'>View Profile</button>
       `;
     return card;
 }
@@ -62,7 +61,7 @@ function createCard (user) {
 
 function displayUsers () {
   const container = document.getElementById('card-container');
-  container.classList.add('grid', 'grid-cols-2', 'gap-4', 'border-2', 'border-red-700');
+  container.classList.add('grid', 'grid-cols-2', 'gap-4', 'border-2', 'border-red-700', 'p-10');
   container.innerHTML = '';
 
   userData.forEach(function(user) {
