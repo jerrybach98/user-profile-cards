@@ -1,6 +1,5 @@
 /* Pseudo
 
-modularize create card components
 flag logic
 send post request with user data through JSON 
 Test post request through local endpoint
@@ -40,13 +39,27 @@ function createFlag() {
   
   flag.addEventListener('click', function () {
     flagClick(flag);
-    /* Send to directus API */
+    flagUserAPI(flag);
   });
   return flag;
 }
 
 function flagClick(flag) {
   flag.classList.add('text-yellow-500', 'pointer-events-none');
+}
+
+function flagUserAPI (flag) {
+  const user = flag.closest('.card');
+
+  const flaggedUserData = {
+    photo_url: user.querySelector('img').src,
+    first_name: user.querySelector('p.font-semibold').textContent.split(' ')[1],
+    last_name: user.querySelector('p.font-semibold').textContent.split(' ')[2],
+    email: user.querySelector('p.text-sm').textContent,
+    country: user.querySelector('p.font-semibold').textContent.split('-')[1].trim(),
+    dev: 'Jerry Bach'
+    }
+    console.log('Post request to directus', flaggedUserData) /* replace with function to call post request */
 }
 
 function createCardComponents (user) {
@@ -61,7 +74,7 @@ function createCardComponents (user) {
 
 function createCard (user) {
   const card = document.createElement('div');
-  card.classList.add('relative', 'flex', 'flex-col', 'justify-center', 'items-center', 'justify-evenly', 'border-3', 'border-b-5', 'p-4', 'shadow-lg', 'rounded-lg', 'border-gray-100');
+  card.classList.add('card', 'relative', 'flex', 'flex-col', 'justify-center', 'items-center', 'justify-evenly', 'border-3', 'border-b-5', 'p-4', 'shadow-lg', 'rounded-lg', 'border-gray-100');
 
   card.innerHTML = createCardComponents (user);
   const flag = createFlag();
