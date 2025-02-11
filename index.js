@@ -41,11 +41,13 @@ getRandomUsers().then((data) => {
 
 function createCard (user) {
  /* Add each user profile as another container (Avatar, name, email, country, flag icon, button) */
- const card = document.createElement('div');
+  const card = document.createElement('div');
+  card.classList.add('flex', 'flex-col', 'justify-center', 'items-center', 'border-2', 'border-blue-700');
+
     card.innerHTML = `
       <p>🏳</p>
       <img src='${user.picture.medium}'>
-      <p>${user.name.first} ${user.name.last}</p>
+      <p > ${user.name.first} ${user.name.last}</p>
       <p>${user.email}</p>
       <p>${user.location.country}</p> 
       <button type="button">View Profile</button>
@@ -60,6 +62,7 @@ function createCard (user) {
 
 function displayUsers () {
   const container = document.getElementById('card-container');
+  container.classList.add('grid', 'grid-cols-2', 'gap-4', 'border-2', 'border-red-700');
   container.innerHTML = '';
 
   userData.forEach(function(user) {
