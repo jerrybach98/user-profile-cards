@@ -1,6 +1,4 @@
 /* Pseudo
-Style with tailwind
-- put country next to name and convert it
 
 flag state using vanilla or look into framework to manage state
 UI for loading, success, and error states
@@ -39,19 +37,36 @@ getRandomUsers().then((data) => {
   displayUsers();
 });
 
+function createFlag() {
+  const flag = document.createElement('div');
+  flag.classList.add('absolute', 'top-0', 'right-0', 'p-4', 'mr-2','cursor-pointer');
+  flag.innerHTML = '🏳';
+  
+  flag.addEventListener('click', function () {
+    handleFlagClick(flag);
+    /* Send to directus API */
+  });
+  return flag;
+}
+
+function handleFlagClick(flag) {
+  flag.classList.add('text-yellow-500', 'pointer-events-none');
+}
+
 function createCard (user) {
   const card = document.createElement('div');
   card.classList.add('relative', 'flex', 'flex-col', 'justify-center', 'items-center', 'justify-evenly', 'border-3', 'border-b-5', 'p-4', 'shadow-lg', 'rounded-lg', 'border-gray-100');
 
-
-  
     card.innerHTML = `
-      <div class='absolute top-0 right-0 p-4 mr-2'>🏳</div>
       <img src='${user.picture.medium}' class='rounded-full m-2'>
-      <p class='font-semibold m-1'> ${user.name.first} ${user.name.last} ${user.location.country}</p>
+      <p class='font-semibold m-1'> ${user.name.first} ${user.name.last} - ${user.location.country}</p>
       <p class='text-sm text-gray-500 m-1'>${user.email}</p>
-      <button class='bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded m-1'>View Profile</button>
+      <button class='bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded m-1 cursor-pointer'>View Profile</button>
       `;
+
+      const flag = createFlag();
+      card.appendChild(flag);
+
     return card;
 }
 
