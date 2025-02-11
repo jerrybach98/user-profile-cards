@@ -24,3 +24,16 @@ Lazy loading for images
 devounced api call 
 Keyboard navigation
 */
+
+function getRandomUsers() {
+  fetch('https://randomuser.me/api/?results=10')
+    .then((users) => {
+      return users.json();
+    })
+    .then((data) => {
+      console.log(data);
+      return data
+    });
+}
+
+getRandomUsers();
