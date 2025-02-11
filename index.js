@@ -1,8 +1,8 @@
 /* Pseudo
 Empty Parent container
 Add each user profile as another container (Avatar, name, email, country, flag icon, button)
-Use Fetch from external api
-Parse the required components into divs and update dynamically with DOM 
+Use Fetch for external api
+Parse the required components into divs in card containers and update dynamically with DOM 
 
 Style with tailwind
 Add conistent and dynamic spacing using flexbox or grid between profile card containers
