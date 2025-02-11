@@ -39,7 +39,23 @@ getRandomUsers().then((data) => {
   displayUsers();
 });
 
+function createCard (user) {
+ /* Add each user profile as another container (Avatar, name, email, country, flag icon, button) */
+ const card = document.createElement('div');
+    card.innerHTML = `
+      <p>🏳</p>
+      <img src='${user.picture.medium}'>
+      <p>${user.name.first} ${user.name.last}</p>
+      <p>${user.email}</p>
+      <p>${user.location.country}</p> 
+      <button type="button">View Profile</button>
+      
+      `;
+    return card;
+}
 
+
+/* function to convert country name to badges (emoji?) */
 
 
 function displayUsers () {
@@ -47,16 +63,10 @@ function displayUsers () {
   container.innerHTML = '';
 
   userData.forEach(function(user) {
-    const card = document.createElement('div');
-    card.innerHTML = '1';
+    const card = createCard(user)
     container.appendChild(card);
   });
-
-  /* Add each user profile as another container (Avatar, name, email, country, flag icon, button)
-  For each user add a div container
-  add a child div for each component */
-
-}
+};
 
 
 
