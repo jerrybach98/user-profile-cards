@@ -1,9 +1,4 @@
 /* Pseudo
-Empty Parent container
-Add each user profile as another container (Avatar, name, email, country, flag icon, button)
-Use Fetch for external api
-Parse the required components into divs in card containers and update dynamically with DOM 
-
 Style with tailwind
 Add conistent and dynamic spacing using flexbox or grid between profile card containers
 
@@ -26,14 +21,42 @@ Keyboard navigation
 */
 
 function getRandomUsers() {
-  fetch('https://randomuser.me/api/?results=10')
+  return fetch('https://randomuser.me/api/?results=10') /* Only returns a promise */
     .then((users) => {
       return users.json();
     })
     .then((data) => {
-      console.log(data);
-      return data
+      return data.results;
     });
 }
 
-getRandomUsers();
+/* Call and store data to variable */
+let userData;
+
+getRandomUsers().then((data) => {
+  userData = data;
+  console.log(userData);
+  displayUsers();
+});
+
+
+
+
+function displayUsers () {
+  const container = document.getElementById('card-container');
+  container.innerHTML = '';
+
+  userData.forEach(function(user) {
+    const card = document.createElement('div');
+    card.innerHTML = '1';
+    container.appendChild(card);
+  });
+
+  /* Add each user profile as another container (Avatar, name, email, country, flag icon, button)
+  For each user add a div container
+  add a child div for each component */
+
+}
+
+
+
