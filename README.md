@@ -1,11 +1,11 @@
-# user-profile-cards
+# User Profile Cards
 Fetches random user data and displays it in a user profile card layout. This project uses JavaScript and Tailwind CSS to build interactive and responsive UI components.
 
 ## Try it online:
 [View Page](https://jerrybach98.github.io/user-profile-cards/)
 
 ## Tech Stack
-- **Language:** Javascript
+- **Language:** JavaScript
 - **Frameworks and Tools:** Tailwind CSS
 
 ## Features:
@@ -13,7 +13,7 @@ Fetches random user data and displays it in a user profile card layout. This pro
 * Includes functionality to flag users and send the flagged data to a separate API.
 
 ## Approach & Thoughts
-I started by watching tutorials and reading documentation for Vue and Tailwind CSS, which led me down a bit of a rabbit hole. While I was excited to dive into a new framework, I ended up sticking with my strengths in Vanilla JavaScript, as Vue would probably take a couple of days to learn and implement. As for Tailwind, I chose to stick with it because it was intuitive and I wanted to showcase my ability to learn new tools. <br /> 
+I started by watching tutorials and reading documentation for Vue and Tailwind CSS, which led me down a bit of a rabbit hole. While I was excited to dive into a new framework, I ended up sticking with my strengths in Vanilla JavaScript, as Vue would probably take a couple of days to learn and implement. As for Tailwind, I chose to stick with it because it was very intuitive and I wanted to showcase my ability to learn new tools. <br /> 
 
 One thing I realized while coding was how much I rely on Ruby's syntax sugar; subconsciously writing code in Ruby. Having spent most of the past year coding in Ruby/Rails, there was a brief syntax adjustment period, but it quickly came back to me after reviewing JavaScript style guides, revisiting old projects, and actually writing the code. <br />
 
