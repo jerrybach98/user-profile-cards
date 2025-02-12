@@ -17,7 +17,7 @@ I started by watching tutorials and reading documentation for Vue and Tailwind C
 
 One thing I realized while coding was how much I rely on Ruby's syntax sugar; subconsciously writing code in Ruby. Having spent most of the past year coding in Ruby/Rails, there was a brief syntax adjustment period, but it quickly came back to me after reviewing JavaScript style guides, revisiting old projects, and actually writing the code. <br />
 
-I mentally mapped out the project, drawing inspiration from user profile card designs I found on Google Images, and then pseudocoded my approach. I was already familiar with most of the concepts, but it was my first time implementing some of them in JavaScript. When using AI assistance to speed up workflows, I made sure to thoroughly understand concepts with explanations and read Stack Overflow for insights before any implementations.
+I mentally mapped out the project, drawing inspiration from user profile card designs I found on Google Images, and then pseudocoded my approach by breaking down the functionality into smaller steps. I was already familiar with most of the concepts, but it was my first time implementing some of them in JavaScript. When using AI assistance to speed up workflows, I made sure to thoroughly understand concepts with explanations and read Stack Overflow for insights before any implementations.
 
 ## Lessons Learned:
 * The differences in how languages handle asynchronous tasks, especially with Promises, `async/await`, and `.then()`.
