@@ -1,5 +1,5 @@
 function getRandomUsers() {
-  return fetch('https://randomuser.me/api/?results=10') /* Only returns a promise */
+  return fetch('https://randomuser.me/api/?results=10')
     .then((users) => {
       return users.json();
     })
@@ -11,7 +11,7 @@ function getRandomUsers() {
     });
 }
 
-/* Call and store data to variable */
+/* Call and store API data to variable */
 let userData;
 
 getRandomUsers().then((data) => {
@@ -20,14 +20,14 @@ getRandomUsers().then((data) => {
   displayUsers();
 });
 
-function createFlag() {
+function createFlagIcon() {
   const flag = document.createElement('div');
   flag.classList.add('absolute', 'top-0', 'right-0', 'p-4', 'mr-2', 'cursor-pointer');
   flag.innerHTML = '🏳';
 
   flag.addEventListener('click', function () {
     clickedFlag(flag);
-    flagUserAPI(flag);
+    selectFlaggedUser(flag);
   });
   return flag;
 }
@@ -36,7 +36,7 @@ function clickedFlag(flag) {
   flag.classList.add('text-yellow-500', 'pointer-events-none');
 }
 
-function flagUserAPI(flag) {
+function selectFlaggedUser(flag) {
   const user = flag.closest('.card');
 
   const flaggedUserData = {
@@ -83,7 +83,7 @@ function createCard(user) {
   card.classList.add('card', 'relative', 'flex', 'flex-col', 'justify-center', 'items-center', 'justify-evenly', 'border-3', 'border-b-5', 'p-4', 'shadow-lg', 'rounded-lg', 'border-gray-100');
 
   card.innerHTML = createCardComponents(user);
-  const flag = createFlag();
+  const flag = createFlagIcon();
   card.appendChild(flag);
 
   return card;
