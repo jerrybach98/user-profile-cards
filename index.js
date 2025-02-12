@@ -38,13 +38,13 @@ function createFlag() {
   flag.innerHTML = '🏳';
   
   flag.addEventListener('click', function () {
-    flagClick(flag);
+    clickedFlag(flag);
     flagUserAPI(flag);
   });
   return flag;
 }
 
-function flagClick(flag) {
+function clickedFlag(flag) {
   flag.classList.add('text-yellow-500', 'pointer-events-none');
 }
 
@@ -57,9 +57,30 @@ function flagUserAPI (flag) {
     last_name: user.querySelector('p.font-semibold').textContent.split(' ')[2],
     email: user.querySelector('p.text-sm').textContent,
     country: user.querySelector('p.font-semibold').textContent.split('-')[1].trim(),
-    dev: 'Jerry Bach'
-    }
-    console.log('Post request to directus', flaggedUserData) /* replace with function to call post request */
+    dev: 'Jerry'
+    };
+
+    dataToAPI(flaggedUserData) /* replace with function to call post request */
+}
+
+function dataToAPI (flaggedUserData) {
+  fetch('https://mlabs.directus.app/items/fe_flagged_users', {
+    method: "post",
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({flagged_user_data: flaggedUserData})
+  })
+
+  .then((response) => { 
+    return response.json(); 
+  })
+
+  .then( (data) => { 
+    console.log("Sent to Directus API ", data);
+  })
+
+  .catch(error => {
+    console.error('Unable to send to Directus API', error)
+  });
 }
 
 function createCardComponents (user) {
