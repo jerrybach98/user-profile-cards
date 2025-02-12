@@ -40,11 +40,11 @@ function selectFlaggedUser(flag) {
   const user = flag.closest('.card');
 
   const flaggedUserData = {
-    photo_url: user.querySelector('img').src,
-    first_name: user.querySelector('p.font-semibold').textContent.split(' ')[1],
-    last_name: user.querySelector('p.font-semibold').textContent.split(' ')[2],
-    email: user.querySelector('p.text-sm').textContent,
-    country: user.querySelector('p.font-semibold').textContent.split('-')[1].trim(),
+    photo_url: user.querySelector('.avatar').src,
+    first_name: user.querySelector('.name').textContent.split(' ')[1],
+    last_name: user.querySelector('.name').textContent.split(' ')[2],
+    email: user.querySelector('.email').textContent,
+    country: user.querySelector('.name').textContent.split('-')[1].trim(),
     dev: 'Jerry'
   };
 
@@ -70,10 +70,10 @@ function dataToAPI(flaggedUserData) {
 
 function createCardComponents(user) {
   const components = `
-    <img src='${user.picture.medium}' class='rounded-full m-2' loading="lazy" alt="User ${user.name.first} ${user.name.last} avatar picture">
-    <p class='font-semibold m-1'> ${user.name.first} ${user.name.last} - ${user.location.country}</p>
-    <p class='text-sm text-gray-500 m-1'>${user.email}</p>
-    <button class='bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded m-1 cursor-pointer'>View Profile</button>
+    <img src='${user.picture.medium}' class='avatar rounded-full m-2' loading="lazy" alt="User ${user.name.first} ${user.name.last} avatar picture">
+    <p class='name font-semibold m-1'> ${user.name.first} ${user.name.last} - ${user.location.country}</p>
+    <p class='email text-sm text-gray-500 mb-4'>${user.email}</p>
+    <button class='view-profile bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded m-2 cursor-pointer'>View Profile</button>
     `;
   return components;
 }
