@@ -1,9 +1,6 @@
 /* Pseudo
 
 flag logic
-send post request with user data through JSON 
-Test post request through local endpoint
-Post to given Directus backend API
 Dark mode support with tailwind - add dark mode top right
 Lazy loading for images - just add lazy tags
 apply style guides to Javascript/HTML
@@ -85,7 +82,7 @@ function dataToAPI (flaggedUserData) {
 
 function createCardComponents (user) {
   const components = `
-    <img src='${user.picture.medium}' class='rounded-full m-2'>
+    <img src='${user.picture.medium}' class='rounded-full m-2' alt="User ${user.name.first} ${user.name.last} avatar picture">
     <p class='font-semibold m-1'> ${user.name.first} ${user.name.last} - ${user.location.country}</p>
     <p class='text-sm text-gray-500 m-1'>${user.email}</p>
     <button class='bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded m-1 cursor-pointer'>View Profile</button>
