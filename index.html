@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <script src="index.js" defer></script>
-    <title>User Profile Cards</title>
-      
-  </head>
-  <body class="font-sans">
-    <div class="text-3xl font-bold p-3 ml-8">
-      User Profiles
-    </div>
-    <div class="border-2 border-red-700" id="card-container">
-    </div>
 
-    <div class="flex items-center justify-center w-full p-2 mt-auto">
-      <a onclick="window.open('https://github.com/jerrybach98')" class="flex items-center gap-1 cursor-pointer">
-        <img src="./images/github-mark.png" class="h-5 w-5 transition-transform duration-200 ease-in-out hover:-translate-y-1" alt="GitHub logo and link">
-        <span class="text-lg hover:cursor-pointer">GitHub</span>
-      </a>
-    </div>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <script src="index.js" defer></script>
+  <title>User Profile Cards</title>
+</head>
+
+<body class="font-sans">
+  <div class="text-3xl font-bold mt-4 ml-10">User Profiles</div>
+
+  <div id="card-container"></div>
+
+  <div class="flex items-center justify-center w-full p-2 mt-auto">
+    <a onclick="window.open('https://github.com/jerrybach98')" class="flex items-center gap-1 cursor-pointer">
+      <img src="./images/github-mark.png" class="h-5 w-5 transition-transform duration-200 ease-in-out hover:-translate-y-1" alt="GitHub logo and link">
+      <span class="text-lg hover:cursor-pointer">GitHub</span>
+    </a>
+  </div>
+</body>
+
 </html>

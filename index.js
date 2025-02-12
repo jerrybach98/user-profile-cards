@@ -1,12 +1,3 @@
-/* Pseudo
-
-flag logic
-Dark mode support with tailwind - add dark mode top right
-Lazy loading for images - just add lazy tags
-apply style guides to Javascript/HTML
-polish ReadME
-*/
-
 function getRandomUsers() {
   return fetch('https://randomuser.me/api/?results=10') /* Only returns a promise */
     .then((users) => {
@@ -16,7 +7,7 @@ function getRandomUsers() {
       return data.results;
     })
     .catch(error => {
-      console.error('Error:', error)
+      console.error('Error:', error);
     });
 }
 
@@ -31,9 +22,9 @@ getRandomUsers().then((data) => {
 
 function createFlag() {
   const flag = document.createElement('div');
-  flag.classList.add('absolute', 'top-0', 'right-0', 'p-4', 'mr-2','cursor-pointer');
+  flag.classList.add('absolute', 'top-0', 'right-0', 'p-4', 'mr-2', 'cursor-pointer');
   flag.innerHTML = '🏳';
-  
+
   flag.addEventListener('click', function () {
     clickedFlag(flag);
     flagUserAPI(flag);
@@ -45,7 +36,7 @@ function clickedFlag(flag) {
   flag.classList.add('text-yellow-500', 'pointer-events-none');
 }
 
-function flagUserAPI (flag) {
+function flagUserAPI(flag) {
   const user = flag.closest('.card');
 
   const flaggedUserData = {
@@ -55,32 +46,29 @@ function flagUserAPI (flag) {
     email: user.querySelector('p.text-sm').textContent,
     country: user.querySelector('p.font-semibold').textContent.split('-')[1].trim(),
     dev: 'Jerry'
-    };
+  };
 
-    dataToAPI(flaggedUserData) /* replace with function to call post request */
+  dataToAPI(flaggedUserData)
 }
 
-function dataToAPI (flaggedUserData) {
+function dataToAPI(flaggedUserData) {
   fetch('https://mlabs.directus.app/items/fe_flagged_users', {
     method: "post",
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({flagged_user_data: flaggedUserData})
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ flagged_user_data: flaggedUserData }),
   })
-
-  .then((response) => { 
-    return response.json(); 
-  })
-
-  .then( (data) => { 
-    console.log("Sent to Directus API ", data);
-  })
-
-  .catch(error => {
-    console.error('Unable to send to Directus API', error)
-  });
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log("Sent to Directus API ", data);
+    })
+    .catch(error => {
+      console.error('Unable to send to Directus API', error);
+    });
 }
 
-function createCardComponents (user) {
+function createCardComponents(user) {
   const components = `
     <img src='${user.picture.medium}' class='rounded-full m-2' loading="lazy" alt="User ${user.name.first} ${user.name.last} avatar picture">
     <p class='font-semibold m-1'> ${user.name.first} ${user.name.last} - ${user.location.country}</p>
@@ -90,27 +78,24 @@ function createCardComponents (user) {
   return components;
 }
 
-function createCard (user) {
+function createCard(user) {
   const card = document.createElement('div');
   card.classList.add('card', 'relative', 'flex', 'flex-col', 'justify-center', 'items-center', 'justify-evenly', 'border-3', 'border-b-5', 'p-4', 'shadow-lg', 'rounded-lg', 'border-gray-100');
 
-  card.innerHTML = createCardComponents (user);
+  card.innerHTML = createCardComponents(user);
   const flag = createFlag();
   card.appendChild(flag);
 
   return card;
 }
 
-function displayUsers () {
+function displayUsers() {
   const container = document.getElementById('card-container');
-  container.classList.add('grid', 'grid-cols-2', 'gap-4', 'border-2', 'border-red-700', 'p-10');
+  container.classList.add('grid', 'grid-cols-2', 'gap-4', 'p-10');
   container.innerHTML = '';
 
-  userData.forEach(function(user) {
-    const card = createCard(user)
+  userData.forEach(function (user) {
+    const card = createCard(user);
     container.appendChild(card);
   });
-};
-
-
-
+}
